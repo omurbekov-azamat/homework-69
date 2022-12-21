@@ -1,9 +1,12 @@
 import React from 'react';
+import NavBar from "./components/NavBar/NavBar";
+import SearchInput from "./components/SearchInput/SearchInput";
 
 function App() {
   return (
     <div>
-      hello world
+      <NavBar/>
+      <SearchInput/>
     </div>
   );
 }
