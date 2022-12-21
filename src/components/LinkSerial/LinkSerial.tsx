@@ -1,6 +1,6 @@
 import React from 'react';
-import {GotSerial} from "../../types";
 import {NavLink} from "react-router-dom";
+import {GotSerial} from "../../types";
 
 interface Props {
   item: GotSerial;
@@ -14,4 +14,4 @@ const LinkSerial: React.FC<Props> = ({item}) => {
   );
 };
 
-export default LinkSerial;
+export default LinkSerial

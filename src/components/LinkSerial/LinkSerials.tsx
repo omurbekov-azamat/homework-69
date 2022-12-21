@@ -19,4 +19,4 @@ const LinkSerials = () => {
   );
 };
 
-export default LinkSerials;
+export default LinkSerials

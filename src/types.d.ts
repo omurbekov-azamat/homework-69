@@ -16,3 +16,14 @@ export interface GotApi {
     url: string,
   }
 }
+
+export interface NewShow {
+  image: {
+    medium: string;
+  }
+  language: string;
+  name: string;
+  rating: {
+    average: number
+  }
+}
