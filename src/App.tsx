@@ -1,15 +1,19 @@
 import React from 'react';
+import {Route, Routes} from "react-router-dom";
+import Home from "./container/Home/Home";
 import NavBar from "./components/NavBar/NavBar";
-import SearchInput from "./components/SearchInput/SearchInput";
-import Serials from "./components/Serial/Serials";
+import Shows from "./container/Shows/Shows";
 
 function App() {
   return (
-    <div>
+    <>
       <NavBar/>
-      <SearchInput/>
-      <Serials/>
-    </div>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/shows/:id' element={<Shows/>}/>
+      </Routes>
+
+    </>
   );
 }
 
