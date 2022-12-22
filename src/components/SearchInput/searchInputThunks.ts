@@ -10,7 +10,7 @@ export const onSearchInput = createAsyncThunk<GotSerial[], string>(
       return {
         id: item.show.id,
         name: item.show.name,
-        url: item.show.url
+        url: item.show.url,
       };
     });
     return newSerials;
