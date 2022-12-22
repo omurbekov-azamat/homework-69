@@ -1,6 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import axiosApi from "../../axiosApi";
-import {GotApi, GotSerial} from "../../types";
+import axiosApi from "../axiosApi";
+import {GotApi, GotSerial} from "../types";
 
 export const onSearchInput = createAsyncThunk<GotSerial[], string>(
   'serials/search',

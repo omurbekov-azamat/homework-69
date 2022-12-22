@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {onSearchInput} from "./searchInputThunks";
+import {onSearchInput} from "../../store/searchInputThunks";
 import {useAppDispatch} from "../../app/hook";
 import {GotTvShow} from "../../types";
 

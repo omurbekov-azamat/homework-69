@@ -1,14 +1,16 @@
 import React, {useEffect} from 'react';
 import {useParams} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../app/hook";
-import {fetchSerial} from "./showsSlice";
-import {selectSerial} from "../../components/SearchInput/searchInputSlice";
+import {fetchSerial} from "../../store/tvCardSlice";
+import {selectLoadingOneShow, selectSerial} from "../../store/searchInputSlice";
 import TvCard from "../../components/TvCard/TvCard";
+import Spinner from "../../components/Spinner/Spinner";
 
 const Shows = () => {
   const {id} = useParams();
   const dispatch = useAppDispatch();
   const serial = useAppSelector(selectSerial);
+  const loading = useAppSelector(selectLoadingOneShow);
 
   useEffect(() => {
     if (id) {
@@ -18,7 +20,7 @@ const Shows = () => {
 
   return (
     <div className='container mt-5'>
-      {serial.name.length > 0 && (
+      {loading ? <Spinner/> : serial.name.length > 0 && (
         <TvCard item={serial}/>
       )}
     </div>

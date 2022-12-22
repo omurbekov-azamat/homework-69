@@ -3,7 +3,7 @@ import {useLocation} from "react-router-dom";
 import {useAppDispatch} from "../../app/hook";
 import SearchInput from "../../components/SearchInput/SearchInput";
 import LinkSerials from "../../components/LinkSerial/LinkSerials";
-import {resetSerials} from "../../components/SearchInput/searchInputSlice";
+import {resetSerials} from "../../store/searchInputSlice";
 
 const Home = () => {
   const location = useLocation();

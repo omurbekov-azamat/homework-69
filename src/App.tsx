@@ -1,8 +1,8 @@
 import React from 'react';
 import {Route, Routes} from "react-router-dom";
-import Home from "./container/Home/Home";
+import Home from "./containers/Home/Home";
 import NavBar from "./components/NavBar/NavBar";
-import Shows from "./container/Shows/Shows";
+import Shows from "./containers/Shows/Shows";
 
 function App() {
   return (

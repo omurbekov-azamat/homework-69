@@ -1,6 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
-import {NewShow} from "../../types";
+import {NewShow} from "../types";
 
 export const fetchSerial = createAsyncThunk<NewShow, string>(
   'serials/fetch',

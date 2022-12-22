@@ -1,13 +1,14 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {onSearchInput} from "./searchInputThunks";
-import {RootState} from "../../app/store";
-import {fetchSerial} from "../../container/Shows/showsSlice";
-import {GotSerial, NewShow} from "../../types";
+import {RootState} from "../app/store";
+import {fetchSerial} from "./tvCardSlice";
+import {GotSerial, NewShow} from "../types";
 
 export interface MainState {
   items: GotSerial[];
   gettingSerials: boolean;
   serial: NewShow;
+  oneShow: boolean;
 }
 
 const initialState: MainState = {
@@ -22,7 +23,8 @@ const initialState: MainState = {
     rating: {
       average: 0,
     },
-  }
+  },
+  oneShow: false,
 }
 
 export const searchInputSlice = createSlice({
@@ -42,11 +44,11 @@ export const searchInputSlice = createSlice({
       state.items = serials;
     });
     builder.addCase(fetchSerial.pending, (state) => {
-      state.gettingSerials = true;
+      state.oneShow = true;
     });
     builder.addCase(fetchSerial.fulfilled, (state, {payload: serial}) => {
       state.serial = serial;
-      state.gettingSerials = false;
+      state.oneShow = false;
     })
   },
 });
@@ -55,3 +57,5 @@ export const serialsReducer = searchInputSlice.reducer;
 export const {resetSerials} = searchInputSlice.actions;
 export const selectSerials = (state: RootState) => state.serials.items;
 export const selectSerial = (state: RootState) => state.serials.serial;
+export const selectLoadingOneShow = (state: RootState) => state.serials.oneShow;
+export const selectLoadingSerials = (state: RootState) => state.serials.gettingSerials;
