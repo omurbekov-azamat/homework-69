@@ -23,6 +23,11 @@ const initialState: MainState = {
     rating: {
       average: 0,
     },
+    premiered: '',
+    averageRuntime: 0,
+    status: '',
+    runtime: 0,
+    url: '',
   },
   oneShow: false,
 }

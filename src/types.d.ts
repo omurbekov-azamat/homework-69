@@ -24,6 +24,11 @@ export interface NewShow {
   language: string;
   name: string;
   rating: {
-    average: number
-  }
+    average: number;
+  },
+  premiered: string;
+  averageRuntime: number;
+  status: string;
+  runtime: number;
+  url: string;
 }

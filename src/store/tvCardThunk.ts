@@ -7,12 +7,17 @@ export const fetchSerial = createAsyncThunk<NewShow, string>(
   async (arg) => {
 
     const movieResponse = await axios.get<NewShow>('https://api.tvmaze.com/shows/' + arg);
-
+    console.log(movieResponse.data)
     return {
       image: movieResponse.data.image,
       language: movieResponse.data.language,
       name: movieResponse.data.name,
       rating: movieResponse.data.rating,
+      premiered: movieResponse.data.premiered,
+      averageRuntime: movieResponse.data.averageRuntime,
+      status: movieResponse.data.status,
+      runtime: movieResponse.data.runtime,
+      url: movieResponse.data.url,
     }
   }
 );
