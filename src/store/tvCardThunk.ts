@@ -7,7 +7,7 @@ export const fetchSerial = createAsyncThunk<NewShow, string>(
   async (arg) => {
 
     const movieResponse = await axios.get<NewShow>('https://api.tvmaze.com/shows/' + arg);
-    console.log(movieResponse.data)
+
     return {
       image: movieResponse.data.image,
       language: movieResponse.data.language,
