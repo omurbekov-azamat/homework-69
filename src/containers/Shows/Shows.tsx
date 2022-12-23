@@ -1,10 +1,12 @@
 import React, {useEffect} from 'react';
 import {useParams} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../app/hook";
-import {fetchSerial} from "../../store/tvCardSlice";
+import {fetchSerial} from "../../store/tvCardThunk";
 import {selectLoadingOneShow, selectSerial} from "../../store/searchInputSlice";
 import TvCard from "../../components/TvCard/TvCard";
 import Spinner from "../../components/Spinner/Spinner";
+import SearchInput from "../../components/SearchInput/SearchInput";
+import LinkSerials from "../../components/LinkSerial/LinkSerials";
 
 const Shows = () => {
   const {id} = useParams();
@@ -20,9 +22,13 @@ const Shows = () => {
 
   return (
     <div className='container mt-5'>
-      {loading ? <Spinner/> : serial.name.length > 0 && (
-        <TvCard item={serial}/>
-      )}
+      <SearchInput/>
+      <LinkSerials/>
+      <div className='mt-5' style={{marginLeft: '200px'}}>
+        {loading ? <Spinner/> : serial.name.length > 0 && (
+          <TvCard item={serial}/>
+        )}
+      </div>
     </div>
   );
 };

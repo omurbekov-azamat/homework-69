@@ -11,7 +11,7 @@ const SearchInput = () => {
   });
 
   const onTvShowChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTvShow(prev => ({...prev, serial: e.target.value}))
+    setTvShow(prev => ({...prev, serial: e.target.value}));
     dispatch(onSearchInput(e.target.value));
   };
 

@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {onSearchInput} from "./searchInputThunks";
 import {RootState} from "../app/store";
-import {fetchSerial} from "./tvCardSlice";
+import {fetchSerial} from "./tvCardThunk";
 import {GotSerial, NewShow} from "../types";
 
 export interface MainState {
@@ -16,7 +16,7 @@ const initialState: MainState = {
   gettingSerials: false,
   serial: {
     image: {
-      medium: ''
+      medium: '',
     },
     language: '',
     name: '',
@@ -44,6 +44,7 @@ export const searchInputSlice = createSlice({
       state.items = serials;
     });
     builder.addCase(fetchSerial.pending, (state) => {
+      state.items = [];
       state.oneShow = true;
     });
     builder.addCase(fetchSerial.fulfilled, (state, {payload: serial}) => {

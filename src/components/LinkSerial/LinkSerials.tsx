@@ -8,9 +8,20 @@ const LinkSerials = () => {
   const serials = useAppSelector(selectSerials);
   const loading = useAppSelector(selectLoadingSerials);
 
+  let border = null;
+
+  if (serials.length === 0) {
+    border = 'none';
+  } else {
+    border = '1px solid red';
+  }
+
   return (
     <div className='container'>
-      <div className='border border-light mt-3 p-3 d-flex flex-column' style={{width: '560px', marginLeft: '160px'}}>
+      <div
+        className='mt-3 p-3 d-flex flex-column'
+        style={{width: '470px', marginLeft: '160px', border: border}}
+      >
         {loading ? <Spinner/> : serials.map((item) => (
           <LinkSerial
             key={Math.random()}
@@ -22,4 +33,4 @@ const LinkSerials = () => {
   );
 };
 
-export default LinkSerials
+export default LinkSerials;
